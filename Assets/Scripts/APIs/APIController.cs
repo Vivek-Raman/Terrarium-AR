@@ -2,12 +2,11 @@
 using APIs.Responses;
 using Proyecto26;
 using RSG;
-using UnityEngine;
 
 public static class APIController
 {
-    // private const string BASE_URL = "https://terrarium-ar.herokuapp.com";
-    private const string BASE_URL = "http://192.168.1.11:6969";
+    private const string BASE_URL = "https://terrarium-ar.herokuapp.com";
+    // private const string BASE_URL = "http://192.168.1.11:6969";
 
     public static class UserAPI
     {
@@ -33,7 +32,6 @@ public static class APIController
                     Method = "POST",
                     Body = new UserIdentifierRequest(username, password)
                 });
-
         }
     }
 
