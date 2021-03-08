@@ -18,7 +18,6 @@ public class SwitchDimensions : MonoBehaviour
         cam = Camera.main;
         device = cam.transform;
         ShowMeshesOnlyThroughPortal();
-        Debug.Log("COUNT ME");
     }
 
     private void OnDestroy()

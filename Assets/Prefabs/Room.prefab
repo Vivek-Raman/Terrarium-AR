@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 8557321854087894153}
   - component: {fileID: 4325870418097918906}
   m_Layer: 0
-  m_Name: Room Manager
+  m_Name: Plants Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,6 +203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49505f3982527e4191f85ac8f42453e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plantContainerPrefab: {fileID: 5306139375825945773, guid: ae93f4374ec7efb4cb0bcec5d93a0e0e, type: 3}
+  plantParentTransform: {fileID: 8557321854087894153}
 --- !u!1 &5154106000527447488
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +331,7 @@ Transform:
   - {fileID: 5437418776002941167}
   - {fileID: 946744325}
   - {fileID: 8557321854087894153}
+  - {fileID: 4765641982529998146}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -451,6 +454,36 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 6652c757bd2a5324daa5fe3336401373, type: 2}
   - {fileID: 2100000, guid: fa92eac8c924179489c633d5bca2d0db, type: 2}
   - {fileID: 2100000, guid: 53366d8b667149640b0659f605939146, type: 2}
+--- !u!1 &9001063249043692912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4765641982529998146}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4765641982529998146
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9001063249043692912}
+  m_LocalRotation: {x: -0, y: -0.33189437, z: -0, w: 0.9433166}
+  m_LocalPosition: {x: 1.559, y: 0.829, z: 1.494}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7545265784820003855}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: -38.768, z: 0}
 --- !u!1001 &391766573
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -574,6 +607,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Terrarium
       objectReference: {fileID: 0}
+    - target: {fileID: 8057613418389072642, guid: 07c9b34252ef2e849b068906e9b44108, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d9cccf8453178fc408c52d399c561c40, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07c9b34252ef2e849b068906e9b44108, type: 3}
 --- !u!4 &5148422050511016399 stripped

@@ -9,7 +9,7 @@ public static class PrefsController
         PlayerPrefs.SetString("session_id", response.data.sessionID);
         PlayerPrefs.SetString("session_timestamp", response.data.lastLoginTimestamp);
         PlayerPrefs.SetString("user_id", response.data.user.userID);
-        PlayerPrefs.SetString("user_name", response.data.user.username);
+        PlayerPrefs.SetString("user_name", response.data.user.userName);
         PlayerPrefs.SetInt("user_score", response.data.user.score);
     }
 

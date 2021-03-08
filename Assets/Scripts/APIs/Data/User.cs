@@ -4,8 +4,7 @@
     public class User
     {
         public string userID;
-        public string username;
-        public string password;
+        public string userName;
         public int score;
     }
 }

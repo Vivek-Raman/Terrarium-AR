@@ -35,5 +35,17 @@ public static class APIController
         }
     }
 
-
+    public static class RoomAPI
+    {
+        // calls /room/{userID}
+        public static IPromise<RoomInfoResponse> GetRoomOfUser(string userID)
+        {
+            return RestClient.Get<RoomInfoResponse>(
+                new RequestHelper
+                {
+                    Uri = BASE_URL + "/room/" + userID,
+                    Method = "GET"
+                });
+        }
+    }
 }
