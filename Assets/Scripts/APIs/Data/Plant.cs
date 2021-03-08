@@ -6,7 +6,7 @@ namespace APIs.Data
     public class Plant
     {
         public string plantID;
-        public Species species;
+        public int speciesID;
         public User user;
         public string dateOfPlanting;
         public int positionX;
@@ -16,5 +16,6 @@ namespace APIs.Data
         public int rotationY;
         public int rotationZ;
         public int unwateredDayCount;
+        public int growthState;
     }
 }

@@ -1,10 +1,15 @@
 ﻿using APIs.Data;
 using UnityEngine;
 
-public class PlantContainer : MonoBehaviour
+public class PlantContainer : MonoBehaviour, IChoppable
 {
-    public void SetPlantState(Species species, string dateOfPlanting, int unwateredDayCount)
+    [SerializeField] private PlantSpeciesDirectory speciesDirectory;
+
+
+    public void SetPlantState(int speciesID, string dateOfPlanting, int unwateredDayCount, int growthState)
     {
-        Debug.Log($"\"{species.speciesName}\", planted on {dateOfPlanting}, unwatered for {unwateredDayCount}");
+        Debug.Log($"\"{speciesDirectory.FindSpeciesByID(speciesID).name}\", planted on {dateOfPlanting}, unwatered for {unwateredDayCount}, at state {growthState}");
+        // determine state?
+        // set up actionable zone
     }
 }

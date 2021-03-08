@@ -65,9 +65,9 @@ public class LoginHandler : MonoBehaviour
                 }
 
                 PrefsController.SaveUserSession(response);
-                SceneManager.LoadSceneAsync("PortalDemo").completed += op =>
+                SceneManager.LoadSceneAsync("Portal Demo").completed += op =>
                 {
-                    SceneManager.SetActiveScene(SceneManager.GetSceneByName("PortalDemo"));
+                    SceneManager.SetActiveScene(SceneManager.GetSceneByName("Portal Demo"));
                 };
 
             })

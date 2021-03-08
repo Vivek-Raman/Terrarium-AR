@@ -45,9 +45,10 @@ public class RoomManager : MonoBehaviour
             );
 
             go.GetComponent<PlantContainer>().SetPlantState(
-                plant.species,
+                plant.speciesID,
                 plant.dateOfPlanting,
-                plant.unwateredDayCount);
+                plant.unwateredDayCount,
+                plant.growthState);
         }
     }
 }

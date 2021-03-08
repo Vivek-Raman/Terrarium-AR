@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PortalDemo.unity
     guid: 0e70d8be66b7d1d4db2ec46539d8abbb
+  - enabled: 1
+    path: Assets/Scenes/Portal Demo.unity
+    guid: 0e70d8be66b7d1d4db2ec46539d8abbb
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 00dd6fc69b99b0545abc9f548245576c, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 66ed111ebc7efb94182264c672488fb2, type: 2}
