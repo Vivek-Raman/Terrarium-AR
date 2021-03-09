@@ -1,7 +1,7 @@
 ﻿using APIs.Data;
 using UnityEngine;
 
-public class PlantContainer : MonoBehaviour, IChoppable
+public class PlantContainer : MonoBehaviour
 {
     [SerializeField] private PlantSpeciesDirectory speciesDirectory;
 
