@@ -1,8 +1,11 @@
 fileFormatVersion: 2
-guid: ba193f32fd052eb4994fa814b3da356f
+guid: 6b534119e0a4caf438d126f003b581c4
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 6079457188631206579
+    second: Baby fern.002|NurbsPath.001Action
   externalObjects: {}
   materials:
     materialImportMode: 2

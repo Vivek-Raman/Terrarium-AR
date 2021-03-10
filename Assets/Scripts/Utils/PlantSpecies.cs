@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 
+[System.Serializable]
 public class PlantSpecies
 {
+    public string name;
     public int speciesID;
-    public int name;
     public Sprite thumbnail;
     public string description;
-    public GameObject[] stateModels;
+    public GrowthStateData[] growthStates;
     public int dryTolerance;
 }

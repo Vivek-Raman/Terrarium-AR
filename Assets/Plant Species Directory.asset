@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86fb0d065f14452e9f93429a8323ca49, type: 3}
+  m_Name: Plant Species Directory
+  m_EditorClassIdentifier: 
+  species:
+  - name: Fern
+    speciesID: 1
+    thumbnail: {fileID: 21300000, guid: 41fbe385901727d4f97829d43819e65c, type: 3}
+    description: Ferns are among the most beautiful houseplants. With lacy fronds
+      and a classic texture, they work well in just about any interior design scheme,
+      from country casual to formal. It is easy to grow and helps purifies air.
+    growthStates:
+    - stateName: Watering
+      helperText: Ferns need a draining soil, but you have to understand the amount
+        of water your fern needs. The soil should not be left dry. Your fern seems
+        healthy and excited so it looks like you need to water it daily!
+      model: {fileID: 0}
+    - stateName: Sprouting
+      helperText: Fern shoots have begun peeking from within the soil! These furled
+        fronds of the young fern are called fiddleheads. Continue watering and see
+        your fern flourish!
+      model: {fileID: 3172641478752082194, guid: 80330fe032f56764ca5aede0dff757c3, type: 3}
+    - stateName: Your plant is growing well!
+      helperText: Your plant looks green and healthy! Remember to water your plant
+        for the day. Did you know? Ferns have been on earth for 360 million years.
+        Apart from that a fern can live up to 100 years!
+      model: {fileID: 4671966406424424260, guid: ce355b15bc28f424c8dd26df3e794f78, type: 3}
+    - stateName: Your plant is growing well!
+      helperText: Your plant looks green and healthy! Do not forget to water your
+        plant for the day. Did you know? NASA recognizes the Boston fern for its
+        cleaning qualities, as it can remove cigarette smoke and formaldehyde from
+        the air!
+      model: {fileID: 8929222003585607650, guid: b52b4b8442a86774baa3b3268ea427e5, type: 3}
+    - stateName: Young plant
+      helperText: The fronds of your fern have begun unfurling. The leaves look green
+        and supple. Continue watering and see your fern flourish!
+      model: {fileID: 2079274469653741625, guid: 903f3087219ab784fbdf0039ea1683c6, type: 3}
+    - stateName: Your plant is growing well!
+      helperText: Your plant looks green and healthy! Remember to water your plant
+        for the day. Did you know? Ferns do not develop flowers and seed. They reproduce
+        via miniature cells called spores.
+      model: {fileID: 1645936113774749411, guid: ab5f51b4c91a7434e844d866e3a6ff4e, type: 3}
+    - stateName: Your plant is growing well!
+      helperText: Your plant looks green and healthy! Remember to water your plant
+        for the day. Did you know? Ferns do not develop flowers and seed. They reproduce
+        via miniature cells called spores.
+      model: {fileID: 4242554091108716913, guid: 1fd5ee29ba4c9d743b55e54051fb3245, type: 3}
+    - stateName: Your plant is growing well!
+      helperText: Your plant looks green and healthy! Do not forget to water your
+        plant for the day. Did you know? Direct sunlight burns the fronds. Dapple
+        indoor sunlight helps ferns flourish. But taking the fern out for a walk
+        once a week is important.
+      model: {fileID: 6616592754405644362, guid: 8d097a33a721fda4480a5fbbba6f60fa, type: 3}
+    - stateName: Pruning alert!
+      helperText: "You don\u2019t want to crop the top of the plant when pruning
+        fern. Instead, trim off the side fronds at the base. Also remove old, discolored
+        fronds near the soil to allow new growth to come through. Remove the unsightly
+        stems to the base as well. The remainder of the plant can be clipped along
+        the outer edges to the desired shape."
+      model: {fileID: 7008522628514045948, guid: 063961e8f7cccdc4d899aa3a151466eb, type: 3}
+    dryTolerance: 0

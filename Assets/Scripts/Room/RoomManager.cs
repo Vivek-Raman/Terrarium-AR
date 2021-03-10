@@ -44,11 +44,7 @@ public class RoomManager : MonoBehaviour
                 plantParentTransform
             );
 
-            go.GetComponent<PlantContainer>().SetPlantState(
-                plant.speciesID,
-                plant.dateOfPlanting,
-                plant.unwateredDayCount,
-                plant.growthState);
+            go.GetComponent<PlantContainer>().SetPlantState(plant);
         }
     }
 }

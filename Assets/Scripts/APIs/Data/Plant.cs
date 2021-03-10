@@ -1,21 +1,36 @@
-﻿using System;
-
-namespace APIs.Data
+﻿namespace APIs.Data
 {
-    [Serializable]
+    [System.Serializable]
     public class Plant
     {
         public string plantID;
         public int speciesID;
         public User user;
         public string dateOfPlanting;
-        public int positionX;
-        public int positionY;
-        public int positionZ;
-        public int rotationX;
-        public int rotationY;
-        public int rotationZ;
+        public float positionX;
+        public float positionY;
+        public float positionZ;
+        public float rotationX;
+        public float rotationY;
+        public float rotationZ;
         public int unwateredDayCount;
         public int growthState;
+
+        // deprecated
+        public Plant(string plantID, int speciesID, User user, string dateOfPlanting, float positionX, float positionY, float positionZ, float rotationX, float rotationY, float rotationZ, int unwateredDayCount, int growthState)
+        {
+            this.plantID = plantID;
+            this.speciesID = speciesID;
+            this.user = user;
+            this.dateOfPlanting = dateOfPlanting;
+            this.positionX = positionX;
+            this.positionY = positionY;
+            this.positionZ = positionZ;
+            this.rotationX = rotationX;
+            this.rotationY = rotationY;
+            this.rotationZ = rotationZ;
+            this.unwateredDayCount = unwateredDayCount;
+            this.growthState = growthState;
+        }
     }
 }
