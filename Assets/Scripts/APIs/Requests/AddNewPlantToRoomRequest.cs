@@ -13,6 +13,8 @@ namespace APIs.Responses
         public float rotationX;
         public float rotationY;
         public float rotationZ;
+        public int growthState;
+
 
         public AddNewPlantToRoomRequest(string userID, int speciesID, Transform transform)
         {
@@ -24,6 +26,7 @@ namespace APIs.Responses
             this.rotationX = transform.rotation.eulerAngles.x;
             this.rotationY = transform.rotation.eulerAngles.y;
             this.rotationZ = transform.rotation.eulerAngles.z;
+            this.growthState = 0;
         }
     }
 }

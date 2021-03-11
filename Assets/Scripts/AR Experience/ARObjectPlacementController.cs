@@ -8,6 +8,7 @@ using UnityEngine.XR.ARSubsystems;
 public class ARObjectPlacementController : MonoBehaviour
 {
     public GameObject meshToPlace = null;
+    private GameManager gameManager = null;
 
     private ARRaycastManager raycastManager = null;
     List<ARRaycastHit> hits = new List<ARRaycastHit>();
@@ -17,12 +18,17 @@ public class ARObjectPlacementController : MonoBehaviour
 
     private void Awake()
     {
+        gameManager = this.GetComponent<GameManager>();
         raycastManager = this.GetComponent<ARRaycastManager>();
     }
 
     private void Update()
     {
-        if (placed) this.enabled = false;
+        if (placed)
+        {
+            gameManager.SetState(gameManager.roomExploreState);
+            this.enabled = false;
+        }
 
         if (Input.touchCount <= 0) return;
         if (Input.GetTouch(0).phase != TouchPhase.Ended) return;
@@ -30,7 +36,15 @@ public class ARObjectPlacementController : MonoBehaviour
         if (raycastManager.Raycast(centreOfScreen, hits, TrackableType.Planes))
         {
             placed = true;
-            Instantiate(meshToPlace, hits[0].pose.position, hits[0].pose.rotation);
+            gameManager.Room = Instantiate(meshToPlace, hits[0].pose.position, hits[0].pose.rotation).GetComponent<RoomManager>();
         }
+    }
+
+    [ContextMenu(nameof(Debug_ForcePlacedTrue))]
+    private void Debug_ForcePlacedTrue()
+    {
+        gameManager.Room = FindObjectOfType<RoomManager>();
+        if (gameManager.Room == null) Debug.LogError("No room found.");
+        placed = true;
     }
 }

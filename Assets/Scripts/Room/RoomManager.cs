@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using APIs.Data;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class RoomManager : MonoBehaviour
     // on start, hit API for room state
     // instantiate GameObjects for each plant in response
 
+    private List<GameObject> plantObjects = new List<GameObject>();
     private LoadingHandler spinner = null;
 
     [SerializeField] private GameObject plantContainerPrefab = null;
@@ -18,7 +20,16 @@ public class RoomManager : MonoBehaviour
         {
             Debug.LogError("No loading spinner found in scene");
         }
+    }
 
+    public void AssemblePlants()
+    {
+        foreach (GameObject plantObject in plantObjects)
+        {
+            Destroy(plantObject);
+        }
+        
+        spinner.BeginLoading();
         APIController.RoomAPI.GetRoomOfUser(PrefsController.UserID)
             .Then(response =>
             {
@@ -27,24 +38,22 @@ public class RoomManager : MonoBehaviour
                     Debug.LogError(response._status);
                 }
 
-                AssemblePlants(response.plants);
+                foreach (Plant plant in response.plants)
+                {
+                    Transform myTransform = this.transform;
+                    GameObject go = Instantiate(
+                        plantContainerPrefab,
+                        myTransform.TransformPoint(new Vector3(plant.positionX, plant.positionY, plant.positionZ)),
+                        myTransform.rotation * Quaternion.Euler(plant.rotationX, plant.rotationY, plant.rotationZ),
+                        plantParentTransform
+                    );
+
+                    go.GetComponent<PlantContainer>().SetPlantState(plant);
+
+                    plantObjects.Add(go);
+                }
+
                 spinner.CompleteLoading();
             });
-    }
-
-    private void AssemblePlants(Plant[] plants)
-    {
-        foreach (Plant plant in plants)
-        {
-            Transform myTransform = this.transform;
-            GameObject go = Instantiate(
-                plantContainerPrefab,
-                myTransform.TransformPoint(new Vector3(plant.positionX, plant.positionY, plant.positionZ)),
-                myTransform.rotation * Quaternion.Euler(plant.rotationX, plant.rotationY, plant.rotationZ),
-                plantParentTransform
-            );
-
-            go.GetComponent<PlantContainer>().SetPlantState(plant);
-        }
     }
 }
