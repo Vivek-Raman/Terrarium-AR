@@ -51,14 +51,14 @@ public static class APIController
                 });
         }
 
-        public static IPromise<RoomInfoResponse> AddPlantToRoom(string userID, int speciesID, Transform transform)
+        public static IPromise<RoomInfoResponse> AddPlantToRoom(string userID, int speciesID, Vector3 position, Vector3 eulerRotation)
         {
             return RestClient.Post<RoomInfoResponse>(
                 new RequestHelper
                 {
                     Uri = BASE_URL + "/room/add",
                     Method = "POST",
-                    Body = new AddNewPlantToRoomRequest(userID, speciesID, transform)
+                    Body = new AddNewPlantToRoomRequest(userID, speciesID, position, eulerRotation)
                 });
         }
     }

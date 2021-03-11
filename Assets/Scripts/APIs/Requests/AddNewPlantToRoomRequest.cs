@@ -28,5 +28,18 @@ namespace APIs.Responses
             this.rotationZ = transform.rotation.eulerAngles.z;
             this.growthState = 0;
         }
+        
+        public AddNewPlantToRoomRequest(string userID, int speciesID, Vector3 position, Vector3 rotation)
+        {
+            this.userID = userID;
+            this.speciesID = speciesID;
+            this.positionX = position.x;
+            this.positionY = position.y;
+            this.positionZ = position.z;
+            this.rotationX = rotation.x;
+            this.rotationY = rotation.y;
+            this.rotationZ = rotation.z;
+            this.growthState = 0;
+        }
     }
 }

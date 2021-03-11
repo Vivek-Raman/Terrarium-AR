@@ -10,7 +10,7 @@ public class PlantPlacement : MonoBehaviour
 
     [SerializeField] private GameObject placeholderPrefab = null;
 
-    private readonly Vector3 centreOfScreen = new Vector3(0.5f, 0.5f, 0f);
+    private readonly Vector3 centreOfScreen = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f);
     private Camera cam = null;
     private Transform dummy = null;
     private RaycastHit[] hits = new RaycastHit[5];
@@ -40,11 +40,11 @@ public class PlantPlacement : MonoBehaviour
                     0f, 
                     cam.ScreenPointToRay(centreOfScreen).origin.z));
 
-            if (Input.touchCount <= 0) return;
-            if (Input.GetTouch(0).phase != TouchPhase.Ended) return;
-
-            plantPlacedAction?.Invoke(dummy);
-            placed = true;
+            if (Input.GetMouseButtonUp(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+            {
+                plantPlacedAction?.Invoke(dummy);
+                placed = true;
+            }
         }
         else
         {

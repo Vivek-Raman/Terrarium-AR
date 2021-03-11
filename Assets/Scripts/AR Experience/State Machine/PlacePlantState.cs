@@ -28,7 +28,8 @@ public class PlacePlantState : State
         APIController.RoomAPI.AddPlantToRoom(
             PrefsController.UserID, 
             1, 
-            newTransform)
+            newTransform.position - gameManager.Room.transform.position,
+            newTransform.rotation.eulerAngles)
             .Then(response =>
             {
                 gameManager.SetState(gameManager.roomExploreState);
