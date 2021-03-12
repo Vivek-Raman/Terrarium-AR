@@ -25,6 +25,7 @@ public class PlacePlantState : State
 
     private void OnPlantPlaced(Transform newTransform)
     {
+        gameManager.spinner.BeginLoading();
         APIController.RoomAPI.AddPlantToRoom(
             PrefsController.UserID, 
             1, 
@@ -32,8 +33,13 @@ public class PlacePlantState : State
             newTransform.rotation.eulerAngles)
             .Then(response =>
             {
+                gameManager.spinner.CompleteLoading();
                 gameManager.SetState(gameManager.roomExploreState);
             })
-            .Catch(Debug.LogError);
+            .Catch(error =>
+            {
+                gameManager.spinner.CompleteLoading();
+                Debug.LogError(error);
+            });
     }
 }

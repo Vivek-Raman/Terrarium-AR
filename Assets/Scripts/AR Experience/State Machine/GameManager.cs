@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class GameManager : StateMachine
 {
@@ -7,8 +8,15 @@ public class GameManager : StateMachine
     public RoomExploreState roomExploreState;
     public PlacePlantState placePlantState;
     public PlantInfoState plantInfoState;
+    public UserActionAnimationState wateringPlantState;
+    public UserActionAnimationState trimmingPlantState;
 
     public RoomManager Room { get; set; }
+    public GameObject interactionCanvas = null;
+    public GameObject infoPanel = null;
+    public PlantAction plantAction = null;
+    public LoadingHandler spinner = null;
+
 
     private void Awake()
     {
@@ -16,13 +24,15 @@ public class GameManager : StateMachine
         roomExploreState = new RoomExploreState(this);
         placePlantState = new PlacePlantState(this);
         plantInfoState = new PlantInfoState(this);
+        wateringPlantState = new UserActionAnimationState(this, "Watering");
+        trimmingPlantState = new UserActionAnimationState(this, "Trimming");
         
         initialState = roomPlacementState;
     }
 
-    private void OnGUI()
+    public void UI_SetStateToRoomExploreState()
     {
-        GUILayout.TextArea(currentState.ToString());
+        SetState(roomExploreState);
     }
 
     public void UI_SetStateToPlacePlantState()
@@ -33,5 +43,15 @@ public class GameManager : StateMachine
     public void UI_SetStateToPlantInfoState()
     {
         SetState(plantInfoState);
+    }
+
+    public void UI_SetStateToWateringPlantState()
+    {
+        SetState(wateringPlantState);
+    }
+
+    public void UI_SetStateToTrimmingPlantState()
+    {
+        SetState(trimmingPlantState);
     }
 }

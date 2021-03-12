@@ -1,4 +1,5 @@
 ﻿using APIs.Data;
+using APIs.Data.Enum;
 using APIs.Requests;
 using APIs.Responses;
 using Proyecto26;
@@ -7,9 +8,9 @@ using UnityEngine;
 
 public static class APIController
 {
-    // private const string BASE_URL = "https://terrarium-ar.herokuapp.com";
+    private const string BASE_URL = "https://terrarium-ar.herokuapp.com";
     // private const string BASE_URL = "http://192.168.0.193:6969";
-    private const string BASE_URL = "http://localhost:6969";
+    // private const string BASE_URL = "http://localhost:6969";
 
     public static class UserAPI
     {
@@ -26,9 +27,9 @@ public static class APIController
         }
 
         // calls /user/register
-        public static IPromise<UserRegistrationResponse> Register(string username, string password)
+        public static IPromise<BooleanResponse> Register(string username, string password)
         {
-            return RestClient.Post<UserRegistrationResponse>(
+            return RestClient.Post<BooleanResponse>(
                 new RequestHelper
                 {
                     Uri = BASE_URL + "/user/register",
@@ -59,6 +60,20 @@ public static class APIController
                     Uri = BASE_URL + "/room/add",
                     Method = "POST",
                     Body = new AddNewPlantToRoomRequest(userID, speciesID, position, eulerRotation)
+                });
+        }
+    }
+
+    public static class ActionAPI
+    {
+        public static IPromise<BooleanResponse> AddAction(Plant plant, ActionType actionType)
+        {
+            return RestClient.Post<BooleanResponse>(
+                new RequestHelper
+                {
+                    Uri = BASE_URL + "/room/add",
+                    Method = "POST",
+                    Body = new AddActionRequest(plant, actionType)
                 });
         }
     }

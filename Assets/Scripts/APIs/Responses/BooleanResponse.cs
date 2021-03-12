@@ -3,7 +3,7 @@
 namespace APIs.Responses
 {
     [System.Serializable]
-    public class UserRegistrationResponse : BasicResponse
+    public class BooleanResponse : BasicResponse
     {
         public bool data;
 

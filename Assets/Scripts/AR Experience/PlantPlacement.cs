@@ -15,7 +15,7 @@ public class PlantPlacement : MonoBehaviour
     private Transform dummy = null;
     private RaycastHit[] hits = new RaycastHit[5];
 
-    private void Awake()
+    private void OnEnable()
     {
         cam = Camera.main;
         dummy = Instantiate(placeholderPrefab, -cam.transform.forward, Quaternion.identity).transform;
@@ -29,16 +29,17 @@ public class PlantPlacement : MonoBehaviour
             this.enabled = false;
         }
 
+        Ray ray = cam.ScreenPointToRay(centreOfScreen);
         if (Physics.RaycastNonAlloc(
-            cam.ScreenPointToRay(centreOfScreen), 
+            ray,
             hits, 3f, 1 << 7) > 0)
         {
             dummy.position = hits[0].point;
             dummy.LookAt(
                 new Vector3(
-                    cam.ScreenPointToRay(centreOfScreen).origin.x, 
-                    0f, 
-                    cam.ScreenPointToRay(centreOfScreen).origin.z));
+                    cam.transform.position.x,
+                    0f,
+                    cam.transform.position.z));
 
             if (Input.GetMouseButtonUp(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
             {

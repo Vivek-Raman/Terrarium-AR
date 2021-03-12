@@ -19,7 +19,7 @@ public class PlantContainer : MonoBehaviour
         // determine state?
 
         Transform plantRoot = this.transform.GetChild(0).GetChild(0);
-        GameObject plantPrefab = speciesDirectory.FindSpeciesByID(plant.speciesID).growthStates[plant.growthState].model;
+        GameObject plantPrefab = speciesDirectory.FindSpeciesByID(plant.speciesID).growthStates[plant.GrowthState].model;
         if (plantPrefab == null) return;
         Instantiate(plantPrefab, plantRoot.position, plantRoot.rotation, plantRoot);
 
@@ -41,8 +41,8 @@ public class PlantContainer : MonoBehaviour
         playerExitsPlantProximityAction?.Invoke(plant);
     }
 
-    [ContextMenu(nameof(SetTempPlant))]
-    private void SetTempPlant()
+    [ContextMenu(nameof(Debug_SetTempPlant))]
+    private void Debug_SetTempPlant()
     {
         Debug.LogWarning("Test method called");
         SetPlantState(new Plant("plant-id", 1, new User(), "now", 0f, 0f, 0f, 0f, 0f, 0f, 0, 1));

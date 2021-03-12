@@ -1,6 +1,4 @@
-﻿using System;
-using APIs.Data;
-using TMPro;
+﻿using APIs.Data;
 using UnityEngine;
 
 public class PlantProximityHandler : MonoBehaviour
@@ -9,6 +7,9 @@ public class PlantProximityHandler : MonoBehaviour
     [SerializeField] private GameObject waterPlantButton = null;
     [SerializeField] private GameObject trimPlantButton = null;
 
+    [SerializeField] private PlantSpeciesDirectory plantSpeciesDirectory = null;
+
+    [SerializeField] private PlantInfoCardHandler infoCard = null;
 
     private void Awake()
     {
@@ -24,19 +25,29 @@ public class PlantProximityHandler : MonoBehaviour
 
     private void OnPlayerEntersPlantProximity(Plant plant)
     {
-        infoPlantButton.SetActive(true);
-        waterPlantButton.SetActive(true);
-        trimPlantButton.SetActive(plant.growthState > 7);
-        
-        Debug.Log("player enters " + plant.plantID);
+        ShowButtons(plant.GrowthState);
+        infoCard.SetText(
+            plantSpeciesDirectory.FindSpeciesByID(plant.speciesID).growthStates[plant.GrowthState].stateName,
+            plantSpeciesDirectory.FindSpeciesByID(plant.speciesID).growthStates[plant.GrowthState].helperText);
     }
 
     private void OnPlayerExitsPlantProximity(Plant plant)
     {
+        HideButtons();
+        // infoCard.SetText("", "");
+    }
+
+    private void ShowButtons(int plantGrowthState)
+    {
+        infoPlantButton.SetActive(true);
+        waterPlantButton.SetActive(true);
+        trimPlantButton.SetActive(plantGrowthState > 7);
+    }
+
+    private void HideButtons()
+    {
         infoPlantButton.SetActive(false);
         waterPlantButton.SetActive(false);
         trimPlantButton.SetActive(false);
-
-        Debug.Log("player exits " + plant.plantID);
     }
 }

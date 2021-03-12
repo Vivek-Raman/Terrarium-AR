@@ -10,5 +10,11 @@ public class RoomExploreState : State
     public override void OnStateEnter()
     {
         gameManager.Room.AssemblePlants();
+        gameManager.interactionCanvas.SetActive(true);
+    }
+
+    public override void OnStateExit()
+    {
+        gameManager.interactionCanvas.SetActive(false);
     }
 }

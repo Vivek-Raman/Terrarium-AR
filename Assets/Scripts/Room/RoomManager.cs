@@ -40,6 +40,7 @@ public class RoomManager : MonoBehaviour
 
                 foreach (Plant plant in response.plants)
                 {
+                    plant.speciesID = 1; // TODO: remove
                     Transform myTransform = this.transform;
                     GameObject go = Instantiate(
                         plantContainerPrefab,

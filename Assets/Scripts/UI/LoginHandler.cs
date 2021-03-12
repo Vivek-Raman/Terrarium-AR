@@ -61,6 +61,21 @@ public class LoginHandler : MonoBehaviour
                     spinner.CompleteLoading();
                     SetButtonsActive(true);
                     Debug.LogWarning(response._status);
+
+                #if UNITY_ANDROID
+                    // https://agrawalsuneet.github.io/blogs/native-android-in-unity/
+
+                    AndroidJavaClass toast = new AndroidJavaClass("android.widget.Toast");
+
+                    object[] parameters = new object[3];
+                    AndroidJavaClass unity = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+                    parameters[0] = unity.GetStatic<AndroidJavaObject> ("currentActivity");
+                    parameters[1] = response._status;
+                    parameters[2] = toast.GetStatic<int>("LENGTH_LONG");
+
+                    AndroidJavaObject makeText = toast.CallStatic<AndroidJavaObject> ("makeText", parameters);
+                    makeText.Call("show");
+                #endif
                     return;
                 }
 

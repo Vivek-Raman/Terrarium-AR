@@ -10,7 +10,7 @@ public class Utilities : MonoBehaviour
 
     public void UI_ResetScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("User Login");
     }
 
     public void UI_ToggleDebugPlanes()
