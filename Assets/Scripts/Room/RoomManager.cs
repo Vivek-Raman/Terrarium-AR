@@ -24,11 +24,6 @@ public class RoomManager : MonoBehaviour
 
     public void AssemblePlants()
     {
-        foreach (GameObject plantObject in plantObjects)
-        {
-            Destroy(plantObject);
-        }
-        
         spinner.BeginLoading();
         APIController.RoomAPI.GetRoomOfUser(PrefsController.UserID)
             .Then(response =>
@@ -36,6 +31,11 @@ public class RoomManager : MonoBehaviour
                 if (response._status != "OK")
                 {
                     Debug.LogError(response._status);
+                }
+
+                foreach (GameObject plantObject in plantObjects)
+                {
+                    Destroy(plantObject);
                 }
 
                 foreach (Plant plant in response.plants)

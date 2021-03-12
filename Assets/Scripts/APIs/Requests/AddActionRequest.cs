@@ -6,12 +6,12 @@ namespace APIs.Requests
     [System.Serializable]
     public class AddActionRequest
     {
-        public Plant plant;
+        public string plantID;
         public ActionType actionType;
 
-        public AddActionRequest(Plant plant, ActionType actionType)
+        public AddActionRequest(string plantID, ActionType actionType)
         {
-            this.plant = plant;
+            this.plantID = plantID;
             this.actionType = actionType;
         }
     }

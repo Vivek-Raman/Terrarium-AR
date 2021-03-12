@@ -16,11 +16,13 @@ public class PlacePlantState : State
         plantPlacement.plantPlacedAction += OnPlantPlaced;
         plantPlacement.enabled = true;
         plantPlacement.placed = false;
+        gameManager.addPlantInfoCanvas.SetActive(true);
     }
 
     public override void OnStateExit()
     {
         plantPlacement.plantPlacedAction -= OnPlantPlaced;
+        gameManager.addPlantInfoCanvas.SetActive(false);
     }
 
     private void OnPlantPlaced(Transform newTransform)

@@ -27,7 +27,7 @@ public class PlantAction : MonoBehaviour
         PlantContainer.playerExitsPlantProximityAction -= OnPlayerExitsPlantProximity;
     }
 
-    public float ShowAnimationAndReturnDuration(string animToShow)
+    public float ShowAnimationAndReturnDuration(Vector3 roomPos, string animToShow)
     {
         if (activePlant == null)
         {
@@ -36,7 +36,7 @@ public class PlantAction : MonoBehaviour
         }
 
         this.transform.SetPositionAndRotation(
-            new Vector3(activePlant.positionX, activePlant.positionY, activePlant.positionZ),
+            roomPos + new Vector3(activePlant.positionX, activePlant.positionY, activePlant.positionZ),
             Quaternion.Euler(activePlant.rotationX, activePlant.rotationY, activePlant.rotationZ));
 
         animator.SetTrigger(animToShow);
@@ -56,7 +56,7 @@ public class PlantAction : MonoBehaviour
         }
 
         spinner.BeginLoading();
-        APIController.ActionAPI.AddAction(activePlant, type)
+        APIController.ActionAPI.AddAction(activePlant.plantID, type)
             .Then(response =>
             {
                 spinner.CompleteLoading();

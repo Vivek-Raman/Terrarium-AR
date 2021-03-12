@@ -66,14 +66,14 @@ public static class APIController
 
     public static class ActionAPI
     {
-        public static IPromise<BooleanResponse> AddAction(Plant plant, ActionType actionType)
+        public static IPromise<BooleanResponse> AddAction(string plantID, ActionType actionType)
         {
             return RestClient.Post<BooleanResponse>(
                 new RequestHelper
                 {
-                    Uri = BASE_URL + "/room/add",
+                    Uri = BASE_URL + "/action/add",
                     Method = "POST",
-                    Body = new AddActionRequest(plant, actionType)
+                    Body = new AddActionRequest(plantID, actionType)
                 });
         }
     }

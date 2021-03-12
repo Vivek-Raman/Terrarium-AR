@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class GameManager : StateMachine
 {
@@ -14,6 +12,7 @@ public class GameManager : StateMachine
     public RoomManager Room { get; set; }
     public GameObject interactionCanvas = null;
     public GameObject infoPanel = null;
+    public GameObject addPlantInfoCanvas = null;
     public PlantAction plantAction = null;
     public LoadingHandler spinner = null;
 
