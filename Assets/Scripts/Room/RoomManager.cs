@@ -38,14 +38,14 @@ public class RoomManager : MonoBehaviour
                     Destroy(plantObject);
                 }
 
+                Transform roomTransform = this.transform;
                 foreach (Plant plant in response.plants)
                 {
                     plant.speciesID = 1; // TODO: remove
-                    Transform myTransform = this.transform;
                     GameObject go = Instantiate(
                         plantContainerPrefab,
-                        myTransform.TransformPoint(new Vector3(plant.positionX, plant.positionY, plant.positionZ)),
-                        myTransform.rotation * Quaternion.Euler(plant.rotationX, plant.rotationY, plant.rotationZ),
+                        roomTransform.TransformPoint(new Vector3(plant.positionX, plant.positionY, plant.positionZ)),
+                        roomTransform.rotation * Quaternion.Euler(plant.rotationX, plant.rotationY, plant.rotationZ),
                         plantParentTransform
                     );
 

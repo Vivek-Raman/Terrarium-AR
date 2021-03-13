@@ -31,10 +31,11 @@ public class PlacePlantState : State
     {
         newTransform.Rotate(0f, Random.Range(0f, 360f), 0f);
         gameManager.spinner.BeginLoading();
+        Vector3 newTransformPosition = gameManager.Room.transform.InverseTransformPoint(newTransform.position);
         APIController.RoomAPI.AddPlantToRoom(
-            PrefsController.UserID, 
-            1, 
-            newTransform.position - gameManager.Room.transform.position,
+            PrefsController.UserID,
+            1,
+            newTransformPosition,
             newTransform.rotation.eulerAngles)
             .Then(response =>
             {

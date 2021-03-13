@@ -1012,6 +1012,7 @@ GameObject:
   - component: {fileID: 1762722533}
   - component: {fileID: 1762722537}
   - component: {fileID: 1762722536}
+  - component: {fileID: 1762722540}
   - component: {fileID: 1762722535}
   - component: {fileID: 1762722538}
   - component: {fileID: 1762722539}
@@ -1088,7 +1089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlanePrefab: {fileID: 0}
+  m_PlanePrefab: {fileID: 1483740690680320460, guid: 19d86cd08749747b6b3b7fe7429e743f, type: 3}
   m_DetectionMode: 1
 --- !u!114 &1762722538
 MonoBehaviour:
@@ -1121,6 +1122,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placed: 0
   placeholderPrefab: {fileID: 5148422050287104995, guid: 07c9b34252ef2e849b068906e9b44108, type: 3}
+--- !u!114 &1762722540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762722532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b15f82cc229284894964d2d30806969d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HumanSegmentationStencilMode: 1
+  m_HumanSegmentationDepthMode: 1
 --- !u!1001 &4162382147867490399
 PrefabInstance:
   m_ObjectHideFlags: 0
