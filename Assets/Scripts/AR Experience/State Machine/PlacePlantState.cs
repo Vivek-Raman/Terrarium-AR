@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PlacePlantState : State
 {
@@ -27,6 +29,7 @@ public class PlacePlantState : State
 
     private void OnPlantPlaced(Transform newTransform)
     {
+        newTransform.Rotate(0f, Random.Range(0f, 360f), 0f);
         gameManager.spinner.BeginLoading();
         APIController.RoomAPI.AddPlantToRoom(
             PrefsController.UserID, 

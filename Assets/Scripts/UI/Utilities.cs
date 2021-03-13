@@ -12,13 +12,4 @@ public class Utilities : MonoBehaviour
     {
         SceneManager.LoadScene("User Login");
     }
-
-    public void UI_ToggleDebugPlanes()
-    {
-        bool state = debugPlaneState.Toggle();
-        foreach (ARPlane plane in FindObjectOfType<ARPlaneManager>().trackables)
-        {
-            plane.gameObject.SetActive(state);
-        }
-    }
 }

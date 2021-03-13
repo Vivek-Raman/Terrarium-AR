@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR.ARFoundation;
 
 public class GameManager : StateMachine
 {
@@ -16,6 +17,7 @@ public class GameManager : StateMachine
     public PlantAction plantAction = null;
     public LoadingHandler spinner = null;
 
+    private ARPlaneManager planeManager = null;
 
     private void Awake()
     {
@@ -27,6 +29,8 @@ public class GameManager : StateMachine
         trimmingPlantState = new UserActionAnimationState(this, "Trimming");
         
         initialState = roomPlacementState;
+
+        planeManager = this.GetComponent<ARPlaneManager>();
     }
 
     public void UI_SetStateToRoomExploreState()
@@ -52,5 +56,14 @@ public class GameManager : StateMachine
     public void UI_SetStateToTrimmingPlantState()
     {
         SetState(trimmingPlantState);
+    }
+
+    public void TurnOffDebugPlanes()
+    {
+        planeManager.planePrefab = null;
+        foreach (ARPlane plane in planeManager.trackables)
+        {
+            plane.gameObject.SetActive(false);
+        }
     }
 }

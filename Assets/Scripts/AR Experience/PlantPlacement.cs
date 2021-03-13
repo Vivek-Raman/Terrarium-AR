@@ -35,11 +35,7 @@ public class PlantPlacement : MonoBehaviour
             hits, 3f, 1 << 7) > 0)
         {
             dummy.position = hits[0].point;
-            dummy.LookAt(
-                new Vector3(
-                    cam.transform.position.x,
-                    0f,
-                    cam.transform.position.z));
+            dummy.rotation = Quaternion.identity;
 
             if (Input.GetMouseButtonUp(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
             {
