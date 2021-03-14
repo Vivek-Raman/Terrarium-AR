@@ -14,7 +14,7 @@ public class ARObjectPlacementController : MonoBehaviour
     List<ARRaycastHit> hits = new List<ARRaycastHit>();
     private bool placed = false;
 
-    private readonly Vector2 centreOfScreen = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
+    private Vector2 tapScreenSpace = Vector2.zero;
 
     private void Awake()
     {
@@ -33,7 +33,8 @@ public class ARObjectPlacementController : MonoBehaviour
         if (Input.touchCount <= 0) return;
         if (Input.GetTouch(0).phase != TouchPhase.Ended) return;
         
-        if (raycastManager.Raycast(centreOfScreen, hits, TrackableType.Planes))
+        tapScreenSpace = Input.GetTouch(0).position;
+        if (raycastManager.Raycast(tapScreenSpace, hits, TrackableType.Planes))
         {
             placed = true;
             gameManager.Room = Instantiate(meshToPlace, hits[0].pose.position, hits[0].pose.rotation).GetComponent<RoomManager>();
