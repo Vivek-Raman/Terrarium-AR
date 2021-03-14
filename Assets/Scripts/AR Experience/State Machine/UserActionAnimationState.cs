@@ -14,7 +14,7 @@ public class UserActionAnimationState : State
 
     public override void OnStateEnter()
     {
-        float duration = gameManager.plantAction.ShowAnimationAndReturnDuration(gameManager.Room.transform.position, animTrigger);
+        float duration = gameManager.plantAction.ShowAnimationAndReturnDuration(gameManager.Room.transform, animTrigger);
         framesToStall = (int) duration * Application.targetFrameRate;
     }
 
