@@ -478,15 +478,20 @@ MonoBehaviour:
   device: {fileID: 0}
   stencilMaterials:
   - {fileID: 2100000, guid: f99a816a2c394254aa3027b9b0675ec3, type: 2}
-  - {fileID: 2100000, guid: f82f527b0df49a24586bde2e68fcbd19, type: 2}
   - {fileID: 2100000, guid: f3aced345c77d7b48af7eadbba60f3f0, type: 2}
   - {fileID: 2100000, guid: 83c88c19c7b69bc4c97af25e7401260c, type: 2}
   - {fileID: 2100000, guid: 286145c3e0070b34da3ed9b63a4d4d11, type: 2}
+  - {fileID: 2100000, guid: ed6091dab5968ea46b0d4f3bdbe934ee, type: 2}
+  - {fileID: 2100000, guid: f26e1bbcb62b25645a5f26a07afc894e, type: 2}
+  - {fileID: 2100000, guid: 58dae49fa75ede84f961b4bd2db26209, type: 2}
   - {fileID: 2100000, guid: 3350f8caa37b915448f8aaa5eee91946, type: 2}
   - {fileID: 2100000, guid: 6652c757bd2a5324daa5fe3336401373, type: 2}
+  - {fileID: 2100000, guid: d9cccf8453178fc408c52d399c561c40, type: 2}
+  - {fileID: 2100000, guid: 60f8602ae704edb49afc48a55518c255, type: 2}
+  - {fileID: 2100000, guid: f82f527b0df49a24586bde2e68fcbd19, type: 2}
+  - {fileID: 2100000, guid: 4ba665dc248c9844e8daf583bd79d0d8, type: 2}
   - {fileID: 2100000, guid: fa92eac8c924179489c633d5bca2d0db, type: 2}
   - {fileID: 2100000, guid: 53366d8b667149640b0659f605939146, type: 2}
-  - {fileID: 2100000, guid: d9cccf8453178fc408c52d399c561c40, type: 2}
 --- !u!1001 &771156562
 PrefabInstance:
   m_ObjectHideFlags: 0

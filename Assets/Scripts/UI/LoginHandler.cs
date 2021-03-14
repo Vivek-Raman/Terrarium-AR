@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,6 +11,11 @@ public class LoginHandler : MonoBehaviour
 
     [SerializeField] private Button[] buttons = null;
     [SerializeField] private LoadingHandler spinner = null;
+
+    private void Awake()
+    {
+        Screen.orientation = ScreenOrientation.Portrait;
+    }
 
     public void UI_HandleRegister()
     {
